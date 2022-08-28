@@ -1,0 +1,283 @@
+{
+    "layer": "bottom",
+    "position": "top",
+    "height": 30,
+
+    "modules-left": ["custom/sgtk-menu", "sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["tray", "custom/media", "custom/spotify", "mpd", "custom/btc", "custom/mail", "cpu", "memory", "pulseaudio", "network", "custom/tor", "idle_inhibitor", "battery", "custom/notification", "custom/pacman", "clock"],
+    "sway/mode": {
+        "format": " {}"
+    },
+    "sway/workspaces": {
+        /* https://manpages.ubuntu.com/manpages/focal/man5/waybar-sway-workspaces.5.html */
+        "format": "{name}: {icon}",
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format-icons": {
+                "1": "", /* Terminal */
+                "2": "", /* Terminal */
+                "3": "", /* Chrome */
+                "4": "", /* Code */
+                "5": "", /* spotify */
+                "6": "", /* chat */
+                "7": "", /* Movie */
+                "urgent": "",
+                "focused": "",
+                "default": ""
+            }
+
+    },
+    "sway/window": {
+        "max-length": 80,
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%a %d %b %H:%M}",
+        //"tooltip": false
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%H:%M}"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "battery": {
+        /* show both batteries together */
+        "format": "{capacity}% {icon}",
+        "format-alt": "{time} {icon}",
+        "format-alt-click": "click-right",
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": "{capacity}% ",
+        "interval": 30,
+        "states": {
+            "warning": 15,
+            "critical": 5
+        },
+        "tooltip": false
+    },
+    "battery#bat0": {
+        /* battery 0 */        
+        "bat": "BAT0",
+        "format": "{capacity}% {icon}",
+        "format-alt": "{time} {icon}",
+        "format-alt-click": "click-right",
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": "{capacity}% ",
+        "interval": 30,
+        "states": {
+            "warning": 15,
+            "critical": 5
+        },
+        "tooltip": false
+    },
+    "battery#bat1": {
+        /* battery 1 */                
+        "bat": "BAT1",
+        "format": "{capacity}% {icon}",
+        "format-alt": "{time} {icon}",
+        "format-alt-click": "click-right",
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": "{capacity}% ",
+        "interval": 30,
+        "states": {
+            "warning": 15,
+            "critical": 5
+        },
+        "tooltip": false
+    },    
+    "network": {
+        "format": "{icon}",
+        "format-alt": "{essid} {ipaddr}/{cidr} {icon}",
+        "format-alt-click": "click-right",
+        "format-linked": "{ifname} (No IP) ",
+        "format-icons": {
+            "wifi": ["", "" ,""],
+            "ethernet": [""],
+            "disconnected": [""]
+        },
+        "on-click": "kitty --hold ~/.config/sway/scripts/config-network.sh", /* netctl */
+        /* TODO iwd */
+        "tooltip-format": "{ifname} on {ipaddr}/{cidr} via {gwaddr} {essid}",
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-alt": "{volume} {icon}",
+        "format-alt-click": "click-right",
+        "format-muted": "",
+        "format-icons": {
+            "phone": [" ", " ", " ", " "],
+            "default": ["", "", "", ""]
+            /* "default": ["", "", "", ""] */
+        },
+        "scroll-step": 10,
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
+    "custom/sgtk-menu": {
+        "format": " ",
+        "on-click": "sgtk-menu",
+    }, 
+    "custom/btc": {
+        "format": "{}  ",
+        "format-alt": "{alt}  ",
+        "format-alt-click": "click-right",
+        "interval": 1800,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/btc.sh notor", /* add notor ad the end to use without tor */
+        /* "on-click": "kitty --hold cointop", */ /* remove torify after hold to use without tor */
+        "on-click": "firefox https://cryptowat.ch/charts/KRAKEN:BTC-USD", /* no tor */
+        /* https://github.com/cointop-sh/cointop */
+    }, 
+    "custom/tor": {
+        "format": "{}",
+        "format-alt": "{alt}",
+        "format-alt-click": "click-right",
+        "interval": 60,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/tor_status.sh",
+        "on-click": "~/.config/waybar/modules/tor_status.sh -t",
+    },           
+    "custom/spotify": {
+        "interval": 1,
+        "return-type": "json",
+        "format": "{alt}",
+        "format-alt": "{}",
+        "format-alt-click": "click-right",
+        "exec": "~/.config/waybar/modules/spotify.sh",
+        "on-click": "~/.config/waybar/modules/spotify.sh",
+        "exec-if": "pgrep spotify",
+        "escape": true,
+        "tooltip-format": "{tooltip}"
+    },
+    "custom/storage": {
+        "format-alt": "{} ",
+        "format": "{percentage}% ",
+        "format-alt-click": "click-right",
+        "return-type": "json",
+        "interval": 60,
+        "exec": "~/.config/waybar/modules/storage.sh"
+    },
+    "backlight": {
+        "format": "{icon}",
+        "format-alt": "{percent}% {icon}",
+        "format-alt-click": "click-right",
+        "format-icons": ["", ""],
+        "on-scroll-down": "light -A 1",
+        "on-scroll-up": "light -U 1"
+    },
+    "custom/weather": {
+        "format": "{}",
+        "format-alt": "{alt}: {}",
+        "format-alt-click": "click-right",
+        "interval": 1800,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/weather.sh",
+        "exec-if": "ping wttr.in -c1"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip": false
+    },
+    "custom/mail": {
+        "format": "",
+        "format-alt": "{alt} ",
+        "format-alt-click": "click-right",
+        "interval": 60,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/mail.py",
+        "tooltip": false
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+          "notification": "<span foreground='red'></span>",
+          "none": "",
+          "dnd-notification": "<span foreground='red'></span>",
+          "dnd-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+      },
+      "custom/pacman": {
+        "format": "{}  ",
+        "format-alt-click": "click-right",
+        "interval": 3600,                     // every hour
+        "exec": "checkupdates | wc -l",       // # of updates
+        "exec-if": "exit 0",                  // always run; consider advanced run conditions
+        /* "exec-if": "(checkupdates | wc -l) > 0", */
+        "on-click": "kitty --hold ~/.config/sway/scripts/doupdates.sh", // update system
+        "signal": 8
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "escape": true,
+        "return-type": "json",
+        "max-length": 40,
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl stop",
+        "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+        "format-disconnected": "",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}  ",
+        "interval": 2,
+        "format-alt-click": "click-right",
+        "on-click": "kitty --hold ncmpcpp",
+        "exec-if": "pgrep mpd",
+        "consume-icons": {
+            "on": " " // Icon shows only when "consume" is on
+        },
+        "random-icons": {
+            "off": "<span color=\"#ffffff\"></span> ", // Icon grayed out when "random" is off
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "custom/sway-scratch":{
+        "interval": 1,
+        "return-type": "json",
+        "format" : "{icon}",
+        "format-icons": {
+          "none": "0",
+          "one": "1",
+          "many": "x",
+          "unknown": "?"
+        },
+        "exec": "~/.config/waybar/modules/sway-scratch.sh",
+        "exec-if": "exit 0",
+        "on-click": "swaymsg scratchpad show",
+        "on-click-right": "swaymsg move window to scratchpad",
+        "tooltip": false
+      },
+    "tray": {
+        "icon-size": 18
+    }
+}
