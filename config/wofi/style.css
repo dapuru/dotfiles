@@ -1,0 +1,72 @@
+/*
+based on:
+scheme: "Nord"
+author: "arcticicestudio"
+https://forum.garudalinux.org/t/my-sway-theme-with-manual/17629
+*/
+
+#entry {
+border-radius: 5px;
+padding: 5px 2px 5px 2px;
+margin: 0px 4px 0px 4px;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+#entry:selected {
+color: #80a1c0;
+background-color: rgba (128,161,192,0.6);
+padding: 7px;
+}
+ 
+#text:selected {
+color: #ffffff;
+}
+ 
+#window {
+animation-name: fadeIn;
+animation-duration: 0.4s;
+background-color: transparent;
+font-family: Ubuntu Mono;
+/* font-size:14; */
+}
+
+#input {
+border: none;
+color:aliceblue;
+background-color: rgba (0,0,0,0.6);
+border-radius: 6px;
+margin: 4px 4px 8px 4px;
+padding: 8px;
+}
+
+#inner-box {
+color: rgba (255,0,0,0.5);
+border-radius: 5px;
+/* margin-right: 180px; */
+}
+
+#outer-box {
+background-color: rgba (0,0,0,0.5);
+border-radius: 10px;
+border: 1px solid #474747;
+padding: 10px;
+box-shadow: 0px 0px 3px 1px  #0F0F0F;
+margin: 25px;
+}
+
+#scroll {
+}
+
+#text {
+color: #ffffff;
+background-color: transparent;
+margin: 15px;
+} 
+
+#img {
+  background-color: transparent;
+}
