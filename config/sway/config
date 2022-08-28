@@ -1,0 +1,350 @@
+# Adjusted config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+# Read `man 5 sway` for a complete reference.
+# see also: https://github.com/rbnis/dotfiles/blob/master/.config/sway/config
+
+### Variables
+set $screenshot grim ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
+set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
+set $check_updates ~/.config/sway/scripts/checkupdates.sh
+set $background ~/Images/wallpaper/arch-black.jpg
+
+# Your preferred terminal emulator
+set $term kitty # foot
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+# wofi: -I=icons, -G=dark-theme
+set $menu wofi --show drun -I -G
+set $context_menu sgtk-menu
+
+# workspaces - icons are set in waybar
+
+
+
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+
+# font
+font pango: System San Francisco Display Regular 11
+# Wallpaper
+output * bg $background fill
+
+# Colors focus use: #80a1c0 or #84adae
+# https://man.archlinux.org/man/sway.5.en
+set $focus_color #80a1c0
+
+# colors are: border, background, text, indicator,child_border
+client.focused $focus_color $focus_color #ffffff $focus_color #000000
+
+
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+
+### IDLE & LOCK - from https://pastebin.com/wwKztKmk
+bindsym $mod+l exec $lock_path
+set $idle_path ~/.config/sway/scripts/idle.sh
+set $lock_path ~/.config/sway/scripts/lock.sh
+
+
+### Input configuration
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+input 1:1:AT_Translated_Set_2_keyboard {
+  xkb_layout "de"
+  xkb_variant nodeadkeys
+}
+
+# Tilde ~ = alt+*
+# Pipe = ?alt+7
+input 1452:545:Apple,_Inc_Apple_Keyboard {
+  xkb_layout "de"
+  xkb_model "macintosh"
+  xkb_variant nodeadkeys
+  xkb_numlock enabled
+}
+
+
+# Windows idicator for usage of xwayland
+for_window [shell="xwayland"] title_format "%title [XWayland]"
+
+# Workspaces - named in swaybar
+#                "1": "", /* Terminal */
+#                "2": "", /* Terminal */
+#                "3": "", /* Chrome */
+#                "4": "", /* Code */
+#                "5": "", /* spotify */
+#                "6": "", /* chat */
+#                "7": "", /* Movie */
+
+
+#
+# Assign windows to workspace
+#
+#assign [class="vlc"] workspace number 4
+for_window [class="Spotify" instance="spotify" title="Spotify"] move container to workspace 5, workspace 5 
+for_window [app_id="thunderbird"] move container to workspace 6, workspace 6
+
+# Floating windows
+# get names via: swaymsg -t get_tree | grep <name>
+#
+for_window [class="vlc"] floating enable, resize set width 1080 px height 960 px, move position 200 400 
+for_window [app_id="audacious"] floating enable, move position 100 400
+for_window [app_id="KeePass"] floating enable, move position 100 400
+for_window [app_id="mpv"] floating enable, move position 100 400
+
+# Floating Pop-up windows for Firefox/Thunderbrid
+# https://www.reddit.com/r/swaywm/comments/k0v3yc/whats_up_with_parentless_popup_windows_are_they/
+for_window [app_id="firefox"]                           floating enable
+for_window [app_id="firefox" title="— Mozilla Firefox"] floating disable
+for_window [app_id="firefox" title="^Firefox"]   floating disable
+for_window [title="Firefox — Sharing Indicator"] floating enable
+
+for_window [app_id="thunderbird"]                                   floating enable
+for_window [app_id="thunderbird" title="- Mozilla Thunderbird$"]    floating disable
+
+# Fixed postions
+# for popup windows of waybar
+for_window [app_id="pavucontrol"] floating enable, sticky enable, resize set width 550 px height 600px, move position cursor, move down 35
+
+
+### Key bindings
+#
+# Basics: Tools
+#
+    # Start a terminal
+    bindsym $mod+Return exec $term
+
+    # Run thunar filemanager
+    bindsym $mod+n exec thunar      
+
+    # Kill focused window
+    bindsym $mod+Shift+q kill
+
+    # Start your launcher
+    bindsym $mod+d exec $context_menu
+    bindsym $mod+space exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Exit sway (logs you out of your Wayland session)
+    #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec nwgbar # wlogout
+
+    # Shortcuts
+    bindsym $mod+Print exec $screenshot
+    bindsym $mod+Shift+Print exec $screenclip
+    
+
+
+    # Alt tab
+    # from: https://gist.github.com/SidharthArya/f4d80c246793eb61be0ae928c9184406
+    # remember to chmod +x ~/scripts/alttab.py
+    # Keycode 66 is caps lock. Caps lock is disabled up above, so we have to use the keycode instead of the name
+#    bindcode 66 exec swaymsg [con_id=$(swaymsg -t get_tree | ~/scripts/alttab t)] focus  
+    # Keep normal Alt+Tab behaviour since I haven't retrained my fingers to use caps lock exclusively.
+#    bindsym $mod+tab exec swaymsg [con_id=$(swaymsg -t get_tree | ~/.scripts/alttab t)] focus  
+#    bindsym $mod+shift+tab exec swaymsg [con_id=$(swaymsg -t get_tree | ~/scripts/alttab f)] focus  
+
+### Other Key bindings
+
+    # Multimedia
+    bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%
+    bindsym --locked XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%
+    bindsym --locked XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
+    bindsym --locked XF86AudioPlay exec playerctl play-pause
+    bindsym --locked XF86AudioNext exec playerctl next
+    bindsym --locked XF86AudioPrev exec playerctl previous
+
+    # Brightness controls
+    bindsym --locked XF86MonBrightnessUp exec --no-startup-id light -A 10
+    bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 10
+
+
+#
+# Eye-candy
+#
+
+    # Set transparence
+    # https://github.com/rileyrg/linux-init#display
+    set $trans 0.8
+    set $alphamark "α"
+    for_window [con_mark=$alphamark] opacity set $trans
+    bindsym $mod+Control+a mark --toggle "$alphamark" ; [con_id=__focused__] opacity set 1 ; [con_mark=$alphamark con_id=__focused__] opacity set $trans
+
+
+#
+# Moving around:
+#
+    # Move your focus around
+    #bindsym $mod+$left focus left
+    #bindsym $mod+$down focus down
+    #bindsym $mod+$up focus up
+    #bindsym $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    #bindsym $mod+Shift+$left move left
+    #bindsym $mod+Shift+$down move down
+    #bindsym $mod+Shift+$up move up
+    #bindsym $mod+Shift+$right move right
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+#
+# Workspaces:
+#
+    # Switch to workspace
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 0
+    # Move focused container to workspace
+    bindsym $mod+Ctrl+1 move container to workspace number 1
+    bindsym $mod+Ctrl+2 move container to workspace number 2
+    bindsym $mod+Ctrl+3 move container to workspace number 3
+    bindsym $mod+Ctrl+4 move container to workspace number 4
+    bindsym $mod+Ctrl+5 move container to workspace number 5
+    bindsym $mod+Ctrl+6 move container to workspace number 6
+    bindsym $mod+Ctrl+7 move container to workspace number 7
+    bindsym $mod+Ctrl+8 move container to workspace number 8
+    bindsym $mod+Ctrl+9 move container to workspace number 9
+    bindsym $mod+Ctrl+0 move container to workspace number 10
+    
+    # Move window to next workspace or move between workspaces
+    # https://www.reddit.com/r/swaywm/comments/pe5ipl/workspace_next_or_new/
+    set $next_or_new swaymsg -r -t get_workspaces | jq -r --arg OUTPUT $(swaymsg -t get_outputs -r | jq -r '.[] | select(.focused == true) | .name') '(. | (max_by(.num) | .num)) as $max | [.[] | select(.output == $OUTPUT)] | (max_by(.num) | .num) as $maxOutput | (.[] | select(.focused == true) | .num) as $current | if $maxOutput > $current then "next_on_output" else $max + 1 end'
+    set $previous_or_first swaymsg -r -t get_workspaces | jq -r --arg OUTPUT $(swaymsg -t get_outputs -r | jq -r '.[] | select(.focused == true) | .name') '(. | (max_by(.num) | .num)) as $max | [.[] | select(.output == $OUTPUT)] | (min_by(.num) | .num) as $minOutput | (.[] | select(.focused == true) | .num) as $current | if $minOutput < $current then "prev_on_output" else $current end'
+    # Goto next or previous workspace
+    bindsym $mod+Alt+Right exec swaymsg "workspace $($next_or_new)"
+    bindsym $mod+Alt+Left exec swaymsg "workspace $($previous_or_first)"
+    # Move window to next workspace
+    bindsym $mod+Ctrl+Right exec swaymsg "move container to workspace $($next_or_new), workspace next_on_output"
+    bindsym $mod+Ctrl+Left exec swaymsg "move container to workspace $($previous_or_first), workspace prev_on_output"
+    
+
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+b splith, mark "" 
+    bindsym $mod+v splitv, mark "" 
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    #bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+#
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+ swaybar_command waybar
+}
+
+
+
+# Notification Daemon
+exec swaync
+
+# Toggle control center
+bindsym $mod+Shift+n exec swaync-client -t -sw
+
+
+#
+# Autostart
+#
+# Dock
+# exec nwg-dock -d -nows
+# Idle/Swaylock
+exec $idle_path
+# Auto chekco for package updates
+exec_always $check_updates
+# https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
+# also don't forget to adjust .pam_environment with GTK_THEME=theme-name
+# https://bbs.archlinux.org/viewtopic.php?id=225553
+exec_always import-gsettings
+
+# Include
+ include /etc/sway/config.d/*
