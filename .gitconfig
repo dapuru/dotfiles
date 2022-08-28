@@ -1,0 +1,48 @@
+# see:
+# https://switowski.com/blog/configuring-git
+# https://github.com/mathiasbynens/dotfiles/blob/master/.gitconfig
+
+[user]
+	name = <Name - this is for local>
+	email = <email>
+	username = <username>
+
+[credential "https://github.com"]
+	username = dapuru
+
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
+
+[web]
+	browser = google-chrome
+
+[diff]
+	tool = meld
+
+[alias]
+	amend = commit --amend
+	lg = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+
+[color]
+	# Use colors in Git commands that are capable of colored output when
+	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+	ui = auto
+
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+
+[credential]
+	helper = cache --timeout=28800 # 8 hours
