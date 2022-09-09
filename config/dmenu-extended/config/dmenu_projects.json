@@ -1,0 +1,15 @@
+{
+    "Open Home": {
+        "commands": [
+            "kitty mc /home"
+        ],
+        "type": "Dir"
+    },
+    
+    "Code": {
+        "commands": [
+            "code"
+        ],
+        "type": "Env"
+    }
+}
