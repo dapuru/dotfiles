@@ -17,6 +17,7 @@
 set $screenshot grim ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 set $check_updates ~/.config/sway/scripts/checkupdates.sh
+set $alttab ~/.config/sway/scripts/windowswitcher.sh
 set $background ~/Images/wallpaper/arch-black.jpg
 
 # preferred applications
@@ -160,7 +161,6 @@ set $lock_path ~/.config/sway/scripts/lock.sh
 
     # Start your launcher
     bindsym $mod+shift+d exec $context_menu
-    bindsym $mod+d exec $menu_d
     bindsym $mod+space exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -182,15 +182,11 @@ set $lock_path ~/.config/sway/scripts/lock.sh
     bindsym $mod+Shift+Print exec $screenclip
     
 
+    # Alt tab - WindowSwitcher 
+    # https://github.com/AdrienLeGuillou/sway_window_swithcher_dmenu/tree/master
+	bindsym $mod+tab exec $alttab
+  
 
-    # Alt tab
-    # from: https://gist.github.com/SidharthArya/f4d80c246793eb61be0ae928c9184406
-    # remember to chmod +x ~/scripts/alttab.py
-    # Keycode 66 is caps lock. Caps lock is disabled up above, so we have to use the keycode instead of the name
-#    bindcode 66 exec swaymsg [con_id=$(swaymsg -t get_tree | ~/scripts/alttab t)] focus  
-    # Keep normal Alt+Tab behaviour since I haven't retrained my fingers to use caps lock exclusively.
-#    bindsym $mod+tab exec swaymsg [con_id=$(swaymsg -t get_tree | ~/.scripts/alttab t)] focus  
-#    bindsym $mod+shift+tab exec swaymsg [con_id=$(swaymsg -t get_tree | ~/scripts/alttab f)] focus  
 
 ### Other Key bindings
 
@@ -289,7 +285,7 @@ set $lock_path ~/.config/sway/scripts/lock.sh
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
+    bindsym $mod+d layout tabbed
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
@@ -370,6 +366,7 @@ exec $idle_path
 
 # Auto chekco for package updates
 exec_always $check_updates
+
 
 # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
 # also don't forget to adjust .pam_environment with GTK_THEME=theme-name
