@@ -1,7 +1,8 @@
 # dotfiles
 My dotfiles and config for sway on arch
 
-## Structure All dotfiles are currently directly in the root-folder, as everything is still quiet simple. Installation scripts are located in subfolder "setup" - this is tbd.
+## Structure 
+All dotfiles are currently directly in the root-folder, as everything is still quiet simple. Installation scripts are located in subfolder "setup" - this is tbd.
 
 ## Howto (tbd)
 
@@ -16,15 +17,15 @@ For configuration via dotfiles: Create a folder called "dotfiles" in you home-di
 Some software, however, needs to be installed manually, eg Eclipse, RStudio,..
 
 ## General links to dotfiles
-https://dotfiles.github.io/ 
-https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789
+https://dotfiles.github.io/ <br>
+https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789<br>
 
 ## Other repos 
-https://github.com/holman/dotfiles
-https://github.com/webpro/awesome-dotfiles 
-https://github.com/holman/dotfiles 
-https://github.com/blinry/dotfiles 
-https://github.com/mathiasbynens/dotfiles
+https://github.com/holman/dotfiles<br>
+https://github.com/webpro/awesome-dotfiles <br>
+https://github.com/holman/dotfiles <br>
+https://github.com/blinry/dotfiles <br>
+https://github.com/mathiasbynens/dotfiles<br>
 
 ## Other sway repos:
-https://github.com/maximbaz/dotfiles/
+https://github.com/maximbaz/dotfiles/<br>
