@@ -30,7 +30,7 @@
 		"-sb", 
 		"#1D1F21", 
 		"-fn", 
-		"Ubuntu-14" 
+		"System San Francisco Display Regular-14" 
 ], 
     "password_helper": [
         "zenity",
