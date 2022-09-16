@@ -2,6 +2,7 @@
 # Adjusted config for sway
 # Author: dapuru
 # Repo: https://github.com/dapuru/dotfiles
+# V.0.1 - 16.09.2022
 #
 # Location: ~/.config/sway/config
 # Read `man 5 sway` for a complete reference.
@@ -113,7 +114,7 @@ for_window [app_id="thunderbird"] move container to workspace 6, workspace 6
 #
 for_window [class="vlc"] floating enable, resize set width 1080 px height 960 px, move position 200 400 
 for_window [app_id="audacious"] floating enable, move position 100 400
-for_window [app_id="KeePass"] floating enable, move position 100 400
+for_window [class="KeePass2"] floating enable, resize set width 680 px height 560 px, move position 300 400
 for_window [app_id="mpv"] floating enable, move position 100 400
 
 # Floating Pop-up windows for Firefox/Thunderbrid
