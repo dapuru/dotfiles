@@ -12,11 +12,11 @@ All dotfiles are currently just "as is", as everything is still quiet simple. In
 Currently: Copy the files to the intended location.
 Future - Installation: The script bootstrap_system.sh in folder "setup" (which calls apt.exclude.sh) installs needed software after a system-reset. Steps:
 
-'''bash
+
     git clone Repository-URL
     cd setup
     ./setup/bootstrap_system.sh
-'''
+
 
 For configuration via dotfiles: Create a folder called "dotfiles" in you home-directory, cd there and run the script "install_dotfiles.sh". This script clones this repo and symlinks all dotfiles in the root-folder to your home directory.
 
