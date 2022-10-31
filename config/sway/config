@@ -107,7 +107,7 @@ for_window [shell="xwayland"] title_format "%title [XWayland]"
 #
 #assign [class="vlc"] workspace number 4
 for_window [class="Spotify" instance="spotify" title="Spotify"] move container to workspace 5, workspace 5 
-for_window [app_id="thunderbird"] move container to workspace 6, workspace 6
+for_window [class="thunderbird"] move container to workspace 6, workspace 6
 
 # Floating windows
 # get names via: swaymsg -t get_tree | grep <name>
