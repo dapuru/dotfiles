@@ -2,7 +2,7 @@
 # Adjusted config for sway
 # Author: dapuru
 # Repo: https://github.com/dapuru/dotfiles
-# V.0.1 - 16.09.2022
+# V.0.2 - 31.10.2022
 #
 # Location: ~/.config/sway/config
 # Read `man 5 sway` for a complete reference.
@@ -124,8 +124,8 @@ for_window [app_id="firefox" title="— Mozilla Firefox"] floating disable
 for_window [app_id="firefox" title="^Firefox"]   floating disable
 for_window [title="Firefox — Sharing Indicator"] floating enable
 
-for_window [app_id="thunderbird"]                                   floating enable
-for_window [app_id="thunderbird" title="- Mozilla Thunderbird$"]    floating disable
+for_window [class="thunderbird"]                                   floating enable
+for_window [class="thunderbird" title="- Mozilla Thunderbird$"]    floating disable
 
 # Fixed postions
 # for popup windows of waybar
