@@ -32,6 +32,14 @@ ANTWORT=${?}
         else
             echo "No yay update."
         fi
+        dialog --title "3rd party" --yesno "Do you also want to update other 3rd party (scripts)?" 15 60
+        ANTWORT=${?}
+        if [ "$ANTWORT" -eq "0" ]
+        then
+            /home/daniel/Documents/scripts/helper/updateother.sh
+        else
+            echo "No 3rd party update."
+        fi
     elif [ "$ANTWORT" -eq "3" ]
 	then
         echo "PACKAGES: [ $pkg ] $(checkupdates)"
