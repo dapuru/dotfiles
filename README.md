@@ -8,8 +8,6 @@ My dotfiles and config for sway on arch.
 |Task|Tool|
 |--|--|
 | WM | sway |
-| Terminal | kitty |
-| Filemanager | ranger |
 | Bar | waybar |
 | Menu| dmenu extended |
 | Notification Demon | swaync |
@@ -17,13 +15,19 @@ My dotfiles and config for sway on arch.
 | screen-lock | |
 | login | greetd |
 | logout | nwgbar |
+| Terminal | kitty |
+| Quake-Terminal | kitty |
+| Multiplexer | tmux |
+| Filemanager | ranger |
 | screenshot | grim |
 | screenclip| slurp |
 | pdf-viewer | zathura |
 | editor | vim |
 | music player | audacious, ncmpcpp |
 | top | btop |
-| ssh | remnina |
+| ssh | sshch |
+
+see also: https://www.youtube.com/watch?v=uEEHq6f8RsM
 
 ## Structure 
 All dotfiles are currently just "as is", as everything is still quiet simple. Installation scripts will be located in subfolder "setup" - this is tbd.
