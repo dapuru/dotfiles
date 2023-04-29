@@ -21,11 +21,11 @@ set $check_updates ~/.config/sway/scripts/checkupdates.sh
 set $editconf ~/.config/sway/scripts/edit_configfiles.sh
 set $alttab ~/.config/sway/scripts/windowswitcher.sh
 #set $background ~/Images/wallpaper/arch-black.jpg 
-set $background ~/Images/wallpaper/whitesur.png 
+set $background ~/Images/wallpaper/whitesur.png  
 
 # preferred applications
 set $term kitty # terminal
-set $file_manager ~/.config/sway/scripts/run_ranger.sh
+set $file_manager ~/.config/sway/scripts/run_ranger.sh 
 
 # Launcher
 # 1) Wofi
@@ -156,9 +156,11 @@ set $lock_path ~/.config/sway/scripts/lock.sh
 
     # Start a terminal
     bindsym $mod+Return exec $term
+    # Quake Dropdown Terminal
+    # see end of file
 
     # Run thunar filemanager
-    bindsym $mod+n exec $file_manager # thunar      
+    bindsym $mod+n exec $file_manager
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -373,6 +375,11 @@ exec $idle_path
 # Auto chekco for package updates
 exec_always $check_updates
 
+# Quake stype terminal
+# https://www.reddit.com/r/archlinux/comments/bfqc71/any_waylandfriendly_guake_alternatives/
+bindsym $mod+y [app_id="dropdown"] scratchpad show, resize set 100ppt 800, move position 0 0 
+for_window [app_id="dropdown"] move scratchpad
+exec_always kitty --class dropdown -e tmux
 
 # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
 # also don't forget to adjust .pam_environment with GTK_THEME=theme-name
