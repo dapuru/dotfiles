@@ -4,6 +4,27 @@ My dotfiles and config for sway on arch.
 - "**Wayland** is intended as a simpler replacement for X, easier to develop and maintain." (https://wayland.freedesktop.org/) It's the future of Linux GUIs in my opinion. For an architectural overview see https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)
 - "**Arch Linux** is a lightweight and flexible Linux® distribution that tries to Keep It Simple." (https://archlinux.org/) And arch is really nice, coming from Ubuntu, Suse and Co. But be careful - as in every rolling release, an update could break your system.
 
+## Tools
+|Task|Tool|
+|--|--|
+| WM | sway |
+| Terminal | kitty |
+| Filemanager | ranger |
+| Bar | waybar |
+| Menu| dmenu extended |
+| Notification Demon | swaync |
+| Context-Menu| sgtk-menu |
+| screen-lock | |
+| login | greetd |
+| logout | nwgbar |
+| screenshot | grim |
+| screenclip| slurp |
+| pdf-viewer | zathura |
+| editor | vim |
+| music player | audacious, ncmpcpp |
+| top | btop |
+| ssh | remnina |
+
 ## Structure 
 All dotfiles are currently just "as is", as everything is still quiet simple. Installation scripts will be located in subfolder "setup" - this is tbd.
 
