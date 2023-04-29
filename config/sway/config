@@ -2,7 +2,7 @@
 # Adjusted config for sway
 # Author: dapuru
 # Repo: https://github.com/dapuru/dotfiles
-# V.0.2 - 31.10.2022
+# V.0.3 - 29.04.2023
 #
 # Location: ~/.config/sway/config
 # Read `man 5 sway` for a complete reference.
@@ -20,10 +20,12 @@ set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H
 set $check_updates ~/.config/sway/scripts/checkupdates.sh
 set $editconf ~/.config/sway/scripts/edit_configfiles.sh
 set $alttab ~/.config/sway/scripts/windowswitcher.sh
-set $background ~/Images/wallpaper/arch-black.jpg
+#set $background ~/Images/wallpaper/arch-black.jpg # black
+set $background ~/Images/wallpaper/whitesur.png  # white
 
 # preferred applications
-set $term kitty # foot - terminal emulator
+set $term kitty # terminal
+set $file_manager ~/.config/sway/scripts/run_ranger.sh # thunar
 
 # Launcher
 # 1) Wofi
@@ -49,9 +51,9 @@ font pango: System San Francisco Display Regular 11
 # Wallpaper
 output * bg $background fill
 
-# Colors focus use: #80a1c0 or #84adae
+# Colors focus use: #80a1c0 or #84adae for Light-style: 167eb9
 # https://man.archlinux.org/man/sway.5.en
-set $focus_color #80a1c0
+set $focus_color #167eb9
 
 # colors are: border, background, text, indicator,child_border
 client.focused $focus_color $focus_color #ffffff $focus_color #000000
@@ -156,7 +158,7 @@ set $lock_path ~/.config/sway/scripts/lock.sh
     bindsym $mod+Return exec $term
 
     # Run thunar filemanager
-    bindsym $mod+n exec thunar      
+    bindsym $mod+n exec $file_manager # thunar      
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -375,7 +377,9 @@ exec_always $check_updates
 # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
 # also don't forget to adjust .pam_environment with GTK_THEME=theme-name
 # https://bbs.archlinux.org/viewtopic.php?id=225553
-exec_always import-gsettings
+# Theme Nordic: https://www.gnome-look.org/p/1267246/
+# Theme Macos: https://github.com/vinceliuice/WhiteSur-gtk-theme
+exec_always ~/.config/sway/scripts/import-gsettings.sh
 
 # Include
  include /etc/sway/config.d/*
