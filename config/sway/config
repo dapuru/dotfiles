@@ -20,12 +20,12 @@ set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H
 set $check_updates ~/.config/sway/scripts/checkupdates.sh
 set $editconf ~/.config/sway/scripts/edit_configfiles.sh
 set $alttab ~/.config/sway/scripts/windowswitcher.sh
-#set $background ~/Images/wallpaper/arch-black.jpg # black
-set $background ~/Images/wallpaper/whitesur.png  # white
+#set $background ~/Images/wallpaper/arch-black.jpg 
+set $background ~/Images/wallpaper/whitesur.png 
 
 # preferred applications
 set $term kitty # terminal
-set $file_manager ~/.config/sway/scripts/run_ranger.sh # thunar
+set $file_manager ~/.config/sway/scripts/run_ranger.sh
 
 # Launcher
 # 1) Wofi
