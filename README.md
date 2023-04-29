@@ -15,17 +15,20 @@ My dotfiles and config for sway on arch.
 | screen-lock | |
 | login | greetd |
 | logout | nwgbar |
+| Shell | zsh |
+| Finder | fzf |
 | Terminal | kitty |
 | Quake-Terminal | kitty |
 | Multiplexer | tmux |
 | Filemanager | ranger |
+| Markdown | glow |
 | screenshot | grim |
 | screenclip| slurp |
 | pdf-viewer | zathura |
 | editor | vim |
 | music player | audacious, ncmpcpp |
 | top | btop |
-| ssh | sshch |
+| ssh | nccm |
 
 see also: https://www.youtube.com/watch?v=uEEHq6f8RsM
 
