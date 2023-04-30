@@ -17,6 +17,7 @@ My dotfiles and config for sway on arch.
 | logout | nwgbar |
 | Shell | zsh |
 | Finder | fzf |
+| cd | <a href="https://github.com/ajeetdsouza/zoxide">zoxide</a> |
 | Terminal | kitty |
 | Quake-Terminal | kitty |
 | Multiplexer | tmux |
@@ -29,6 +30,7 @@ My dotfiles and config for sway on arch.
 | music player | cmus |
 | top | btop |
 | ssh | nccm |
+
 
 see also: https://www.youtube.com/watch?v=uEEHq6f8RsM
 and: https://dev.to/lissy93/cli-tools-you-cant-live-without-57f6
