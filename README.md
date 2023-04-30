@@ -26,11 +26,12 @@ My dotfiles and config for sway on arch.
 | screenclip| slurp |
 | pdf-viewer | zathura |
 | editor | vim |
-| music player | audacious, ncmpcpp |
+| music player | cmus |
 | top | btop |
 | ssh | nccm |
 
 see also: https://www.youtube.com/watch?v=uEEHq6f8RsM
+and: https://dev.to/lissy93/cli-tools-you-cant-live-without-57f6
 
 ## Structure 
 All dotfiles are currently just "as is", as everything is still quiet simple. Installation scripts will be located in subfolder "setup" - this is tbd.
