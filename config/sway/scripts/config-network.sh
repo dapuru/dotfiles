@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# see https://wiki.archlinux.org/title/netctl
+# update to use iwd
+# see: https://iwd.wiki.kernel.org/
+# frontend: https://github.com/defname/rofi-iwd-wifi-menu
 
 ## CONFIG ##
 
@@ -13,12 +15,12 @@ DEV_WIRELESS="wlan0"
 HEIGHT=15
 WIDTH=40
 CHOICE_HEIGHT=4
-BACKTITLE="netctl"
+BACKTITLE="networkd"
 TITLE="Settings"
 MENU="Choose one of the following options:"
 
-OPTIONS=(1 "list netctl profiles"
-         2 "wifi-menu"
+OPTIONS=(1 "networkctl status"
+         2 "choose wlan: iwd"
          3 "tor"
          4 "analyze connection"
          5 "exit"
@@ -65,13 +67,14 @@ CHOICE=$(dialog --clear \
 clear
 case $CHOICE in
         1)
-            echo "Netctl Profiles in /etc/netctl/"
-            sudo netctl list
+            echo "networkctl staus"
+            networkctl status
             read -p "Press any key to continue... " -n1 -s
             ;;
         2)
-            echo "You chose to run wifi-menu"
-            sudo wifi-menu
+            echo "choose wlan"
+            ~/.config/sway/scripts/wofi_iwd.sh 
+            read -p "Press any key to continue..." -n1 -s
             ;;
         3)
             # TOR
