@@ -1,5 +1,5 @@
 " vimrc config file
-" starting point: https://vim.fandom.com/wiki/Example_vimrc
+" starting point: https://vim.fandom.com/wiki/Example_vimrcir
 " there are also comments for these settings.
 " additions from https://www.drumm.sh/blog/vim-python-dev-environment/
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -186,20 +186,36 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline_theme='simple'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " https://vimawesome.com/plugin/vim-colors-solarized-ours
 " Plug 'altercation/vim-colors-solarized'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
-" https://vimawesome.com/plugin/coc-nvim
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_disable_startup_warning = 1
+"" https://vimawesome.com/plugin/coc-nvim
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"let g:coc_disable_startup_warning = 1
 "" disable use of LSP - part of integration of CoC
-" https://github.com/dense-analysis/ale#faq-coc-nvim
-let g:ale_disable_lsp = 1
+"" https://github.com/dense-analysis/ale#faq-coc-nvim
+"let g:ale_disable_lsp = 1
 
 " https://vimawesome.com/plugin/nerdtree-red
 Plug 'scrooloose/nerdtree'
+
+" Startify Start screen
+" https://github.com/mhinz/vim-startify
+Plug 'mhinz/vim-startify'
+
+" git
+" https://github.com/mhinz/vim-signify
+Plug 'mhinz/vim-signify'
+
+" Tabs
+Plug 'jlanzarotta/bufexplorer'
+
+" Zoxide
+Plug 'nanotee/zoxide.vim'
 
 " Initialize plugin system
 " Reload .vimrc and :PlugInstall to install plugins.
@@ -212,3 +228,5 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme dracula
 
+" Color tweaks
+highlight LineNr ctermfg=white
