@@ -31,6 +31,7 @@ set $file_manager ~/.config/sway/scripts/run_ranger.sh
 # 1) Wofi
 # wofi: -I=icons, -G=dark-theme
 # set $menu wofi --show drun -I -G
+set $xtra_menu wofi --show drun -I -W 400 -H 300
 # 2) Classical Dmenu
 #set $menu_d dmenu_path | dmenu -fn 'Ubuntu-14' | xargs swaymsg exec --
 # 3) Dmenu Extended
@@ -158,6 +159,8 @@ set $lock_path ~/.config/sway/scripts/lock.sh
     bindsym $mod+Return exec $term
     # Quake Dropdown Terminal
     # see end of file
+    # Wofi
+    bindsym $mod+x exec $xtra_menu
 
     # Run thunar filemanager
     bindsym $mod+n exec $file_manager
