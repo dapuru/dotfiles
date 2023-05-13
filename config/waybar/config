@@ -7,7 +7,7 @@
     "modules-center": ["sway/window"],
     "modules-right": ["tray", "custom/media", "custom/spotify", "mpd", "custom/btc", "custom/mail", "cpu", "memory", "custom/storage", "pulseaudio", "network", "custom/tor", "idle_inhibitor", "battery", "custom/notification", "custom/pacman", "clock"],
     "sway/mode": {
-        "format": "ïï {}"
+        "format": " {}"
     },
     "sway/workspaces": {
         /* https://manpages.ubuntu.com/manpages/focal/man5/waybar-sway-workspaces.5.html */
@@ -15,16 +15,16 @@
         "disable-scroll": true,
         "all-outputs": true,
         "format-icons": {
-                "1": "ï ", /* Terminal */
-                "2": "ï ", /* Terminal */
-                "3": "ï¨", /* Chrome */
-                "4": "ï¡", /* Code */
-                "5": "ï¼", /* spotify */
-                "6": "ïµ", /* chat */
-                "7": "ï", /* Movie */
-                "urgent": "ïª",
-                "focused": "ï",
-                "default": "ï"
+                "1": "", /* Terminal */
+                "2": "", /* Terminal */
+                "3": "", /* Chrome */
+                "4": "", /* Code */
+                "5": "", /* spotify */
+                "6": "", /* chat */
+                "7": "", /* Movie */
+                "urgent": "",
+                "focused": "",
+                "default": ""
             }
 
     },
@@ -39,19 +39,19 @@
         "format-alt": "{:%H:%M}"
     },
     "cpu": {
-        "format": "{usage}% ï",
+        "format": "{usage}% \uf4bc",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% ï"
+        "format": "{}% "
     },
     "battery": {
         /* show both batteries together */
         "format": "{capacity}% {icon}",
         "format-alt": "{time} {icon}",
         "format-alt-click": "click-right",
-        "format-icons": ["ï", "ï", "ï", "ï", "ï"],
-        "format-charging": "{capacity}% ï§",
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": "{capacity}% ",
         "interval": 30,
         "states": {
             "warning": 15,
@@ -65,8 +65,8 @@
         "format": "{capacity}% {icon}",
         "format-alt": "{time} {icon}",
         "format-alt-click": "click-right",
-        "format-icons": ["ï", "ï", "ï", "ï", "ï"],
-        "format-charging": "{capacity}% ï§",
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": "{capacity}% ",
         "interval": 30,
         "states": {
             "warning": 15,
@@ -80,8 +80,8 @@
         "format": "{capacity}% {icon}",
         "format-alt": "{time} {icon}",
         "format-alt-click": "click-right",
-        "format-icons": ["ï", "ï", "ï", "ï", "ï"],
-        "format-charging": "{capacity}% ï§",
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": "{capacity}% ",
         "interval": 30,
         "states": {
             "warning": 15,
@@ -93,11 +93,11 @@
         "format": "{icon}",
         "format-alt": "{essid} {ipaddr}/{cidr} {icon}",
         "format-alt-click": "click-right",
-        "format-linked": "{ifname} (No IP) ï",
+        "format-linked": "{ifname} (No IP) ",
         "format-icons": {
-            "wifi": ["ï«", "ï«" ,"ï«"],
-            "ethernet": ["ï¿"],
-            "disconnected": ["î"]
+            "wifi": ["", "" ,""],
+            "ethernet": [""],
+            "disconnected": [""]
         },
         "on-click": "kitty --hold ~/.config/sway/scripts/config-network.sh", /* netctl */
         /* TODO iwd */
@@ -107,23 +107,23 @@
         "format": "{icon}",
         "format-alt": "{volume} {icon}",
         "format-alt-click": "click-right",
-        "format-muted": "ï©",
+        "format-muted": "",
         "format-icons": {
-            "phone": ["ï¥ ï¦", "ï¥ ï§", "ï¥ ï¨", "ï¥ ï¨"],
-            "default": ["ï¦", "ï§", "ï¨", "ï¨"]
-            /* "default": ["ï¦", "ï§", "ï¨", "ï¨"] */
+            "phone": [" ", " ", " ", " "],
+            "default": ["", "", "", ""]
+            /* "default": ["", "", "", ""] */
         },
         "scroll-step": 10,
         "on-click": "pavucontrol",
         "tooltip": false
     },
     "custom/sgtk-menu": {
-        "format": " ï",
+        "format": " ",
         "on-click": "sgtk-menu",
     }, 
     "custom/btc": {
-        "format": "{} î´ ",
-        "format-alt": "{alt}  î´",
+        "format": "{} \uf15a",
+        "format-alt": "{alt} \uf15a",
         "format-alt-click": "click-right",
         "interval": 1800,
         "return-type": "json",
@@ -154,8 +154,8 @@
         "tooltip-format": "{tooltip}"
     },
     "custom/storage": {
-        "format-alt": "{} ï ",
-        "format": "{percentage}% ï ",
+        "format-alt": "{} ",
+        "format": "{percentage}% ",
         "format-alt-click": "click-right",
         "return-type": "json",
         "interval": 60,
@@ -166,7 +166,7 @@
         "format": "{icon}",
         "format-alt": "{percent}% {icon}",
         "format-alt-click": "click-right",
-        "format-icons": ["ï«", "ï²"],
+        "format-icons": ["", ""],
         "on-scroll-down": "light -A 1",
         "on-scroll-up": "light -U 1"
     },
@@ -182,14 +182,14 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "ï",
-            "deactivated": "ï£"
+            "activated": "",
+            "deactivated": ""
         },
         "tooltip": false
     },
     "custom/mail": {
-        "format": "ï ",
-        "format-alt": "{alt} ï ",
+        "format": "",
+        "format-alt": "{alt} ",
         "format-alt-click": "click-right",
         "interval": 60,
         "return-type": "json",
@@ -200,10 +200,10 @@
         "tooltip": false,
         "format": "{icon}",
         "format-icons": {
-          "notification": "<span foreground='red'>ï¢</span>",
-          "none": "ï¢",
-          "dnd-notification": "<span foreground='red'>ï·</span>",
-          "dnd-none": "ï·"
+          "notification": "<span foreground='red'></span>",
+          "none": "",
+          "dnd-notification": "<span foreground='red'></span>",
+          "dnd-none": ""
         },
         "return-type": "json",
         "exec-if": "which swaync-client",
@@ -213,7 +213,7 @@
         "escape": true
       },
       "custom/pacman": {
-        "format": "{}  ï",
+        "format": "{}  ",
         "format-alt-click": "click-right",
         "interval": 3600,                     // every hour
         "exec": "checkupdates | wc -l",       // # of updates
@@ -235,29 +235,29 @@
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
     },
     "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ï",
-        "format-disconnected": "ï",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} ï ï",
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+        "format-disconnected": "",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}  ",
         "interval": 2,
         "format-alt-click": "click-right",
         "on-click": "kitty --hold ncmpcpp",
         "exec-if": "pgrep mpd",
         "consume-icons": {
-            "on": "ï " // Icon shows only when "consume" is on
+            "on": " " // Icon shows only when "consume" is on
         },
         "random-icons": {
-            "off": "<span color=\"#ffffff\">ï´</span> ", // Icon grayed out when "random" is off
-            "on": "ï´ "
+            "off": "<span color=\"#ffffff\"></span> ", // Icon grayed out when "random" is off
+            "on": " "
         },
         "repeat-icons": {
-            "on": "ï "
+            "on": " "
         },
         "single-icons": {
-            "on": "ï1 "
+            "on": "1 "
         },
         "state-icons": {
-            "paused": "ï",
-            "playing": "ï"
+            "paused": "",
+            "playing": ""
         },
         "tooltip-format": "MPD (connected)",
         "tooltip-format-disconnected": "MPD (disconnected)"
@@ -267,10 +267,10 @@
         "return-type": "json",
         "format" : "{icon}",
         "format-icons": {
-          "none": "0ï",
-          "one": "1ï",
-          "many": "xï",
-          "unknown": "?ï"
+          "none": "0",
+          "one": "1",
+          "many": "x",
+          "unknown": "?"
         },
         "exec": "~/.config/waybar/modules/sway-scratch.sh",
         "exec-if": "exit 0",
