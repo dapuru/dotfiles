@@ -382,7 +382,7 @@ exec_always $check_updates
 # https://www.reddit.com/r/archlinux/comments/bfqc71/any_waylandfriendly_guake_alternatives/
 bindsym $mod+y [app_id="dropdown"] scratchpad show, resize set 100ppt 800, move position 0 0 
 for_window [app_id="dropdown"] move scratchpad
-exec_always kitty --class dropdown -e tmux
+exec_always kitty --config ~/.config/kitty/kitty-quaketerm.conf --class dropdown -e tmux
 
 # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
 # also don't forget to adjust .pam_environment with GTK_THEME=theme-name
