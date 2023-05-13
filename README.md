@@ -9,6 +9,7 @@ My dotfiles and config for sway on arch.
 |--|--|
 | WM | sway |
 | Bar | waybar |
+| Terminal-Font | Agave Nerd Font |
 | Menu| dmenu extended |
 | Notification Demon | swaync |
 | Context-Menu| sgtk-menu |
@@ -26,7 +27,7 @@ My dotfiles and config for sway on arch.
 | screenshot | grim |
 | screenclip| slurp |
 | pdf-viewer | zathura |
-| editor | vim |
+| editor | vim & neovim, NvChad |
 | music player | cmus |
 | top | btop |
 | ssh | nccm |
