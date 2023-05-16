@@ -30,11 +30,12 @@ My dotfiles and config for sway on arch.
 | editor | vim & neovim, NvChad |
 | music player | cmus |
 | top | btop |
-| ssh | nccm |
+| ssh | none |
 
 
-see also: https://www.youtube.com/watch?v=uEEHq6f8RsM
-and: https://dev.to/lissy93/cli-tools-you-cant-live-without-57f6
+see also: https://www.youtube.com/watch?v=uEEHq6f8RsM <br>
+and: https://dev.to/lissy93/cli-tools-you-cant-live-without-57f6 <br>
+and: https://github.com/toolleeo/cli-apps
 
 ## Structure 
 All dotfiles are currently just "as is", as everything is still quiet simple. Installation scripts will be located in subfolder "setup" - this is tbd.
