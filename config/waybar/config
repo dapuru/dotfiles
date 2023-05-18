@@ -5,7 +5,7 @@
 
     "modules-left": ["custom/sgtk-menu", "sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["tray", "custom/media", "custom/spotify", "mpd", "custom/btc", "custom/mail", "cpu", "memory", "custom/storage", "pulseaudio", "network", "custom/tor", "idle_inhibitor", "battery", "custom/notification", "custom/pacman", "clock"],
+    "modules-right": ["tray", "custom/cmus", "custom/media", "custom/spotify", "mpd", "custom/btc", "custom/mail", "cpu", "memory", "custom/storage", "pulseaudio", "network", "custom/tor", "idle_inhibitor", "battery", "custom/notification", "custom/pacman", "clock"],
     "sway/mode": {
         "format": " {}"
     },
@@ -39,11 +39,14 @@
         "format-alt": "{:%H:%M}"
     },
     "cpu": {
-        "format": "{usage}% \uf4bc",
-        "tooltip": false
+        "format": "{}% \uf4bc",
+        "tooltip": true,
+        "tooltip-format": "{load}",
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% ",
+        "tooltip-format": "{used:0.1f}/{total:0.1f}GiB used ",
+        "on-click": "kitty --hold htop", 
     },
     "battery": {
         /* show both batteries together */
@@ -233,6 +236,16 @@
         "on-scroll-up": "playerctl next",
         "on-scroll-down": "playerctl previous",
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
+    },
+    "custom/cmus": {
+        "format": "\udb80\udf86",
+        "format-alt": "{} \udb80\udf86",
+        "format-alt-click": "click-right",
+        "interval": 10,
+        "exec": "cmus-remote -C \"format_print '%a - %t'\"", // artist - title
+        "exec-if": "pgrep cmus",       
+        "on-click": "cmus-remote -u",  //toggle pause
+        "escape": true
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
