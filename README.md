@@ -27,10 +27,10 @@ My dotfiles and config for sway on arch.
 | screenshot | grim |
 | screenclip| slurp |
 | pdf-viewer | zathura |
-| editor | vim & neovim, NvChad |
+| editor | vim & neovim (lazyvim) |
 | music player | cmus |
-| top | btop |
-| ssh | none |
+| top | htop |
+| ssh | none/fzf |
 
 
 see also: https://www.youtube.com/watch?v=uEEHq6f8RsM <br>
