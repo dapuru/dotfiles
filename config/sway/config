@@ -2,7 +2,7 @@
 # Adjusted config for sway
 # Author: dapuru
 # Repo: https://github.com/dapuru/dotfiles
-# V.0.3 - 29.04.2023
+# V.0.4 - 22.05.2023
 #
 # Location: ~/.config/sway/config
 # Read `man 5 sway` for a complete reference.
@@ -20,6 +20,7 @@ set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H
 set $check_updates ~/.config/sway/scripts/checkupdates.sh
 set $editconf ~/.config/sway/scripts/edit_configfiles.sh
 set $alttab ~/.config/sway/scripts/windowswitcher.sh
+set $tmux-quake ~/.config/sway/scripts/run-tmux-quake.sh  
 #set $background ~/Images/wallpaper/arch-black.jpg 
 set $background ~/Images/wallpaper/whitesur.png  
 
@@ -42,7 +43,6 @@ set $menu_d dmenu_extended_run
 set $context_menu sgtk-menu
 
 
-
 ###########################################################
 # Eye Candy
 ###########################################################
@@ -53,8 +53,9 @@ font pango: System San Francisco Display Regular 11
 output * bg $background fill
 
 # Colors focus use: #80a1c0 or #84adae for Light-style: 167eb9
+# Nord: 81a1c1 88c0d0
 # https://man.archlinux.org/man/sway.5.en
-set $focus_color #167eb9
+set $focus_color #81a1c1
 
 # colors are: border, background, text, indicator,child_border
 client.focused $focus_color $focus_color #ffffff $focus_color #000000
@@ -382,7 +383,7 @@ exec_always $check_updates
 # https://www.reddit.com/r/archlinux/comments/bfqc71/any_waylandfriendly_guake_alternatives/
 bindsym $mod+y [app_id="dropdown"] scratchpad show, resize set 100ppt 800, move position 0 0 
 for_window [app_id="dropdown"] move scratchpad
-exec_always kitty --config ~/.config/kitty/kitty-quaketerm.conf --class dropdown -e tmux
+exec_always kitty --config ~/.config/kitty/kitty-quaketerm.conf --class dropdown -e $tmux-quake
 
 # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
 # also don't forget to adjust .pam_environment with GTK_THEME=theme-name
