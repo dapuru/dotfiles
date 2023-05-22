@@ -17,10 +17,10 @@ My dotfiles and config for sway on arch.
 | login | greetd |
 | logout | nwgbar |
 | Shell | zsh |
-| Finder | fzf |
+| Finder | <a href="https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/">fzf</a> |
 | cd | <a href="https://github.com/ajeetdsouza/zoxide">zoxide</a> |
 | Terminal | kitty |
-| Quake-Terminal | kitty |
+| Quake-Terminal | kitty & tmux |
 | Multiplexer | tmux |
 | Filemanager | ranger |
 | Markdown | glow |
