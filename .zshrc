@@ -9,9 +9,14 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # add tools
-export PATH=$PATH:$HOME/diff-so-fancy:/opt/sap/hdb:$HOME/.config/sway/scripts
-export VISUAL=nvim;
-export EDITOR=nvim;
+export PATH=$PATH:$HOME/diff-so-fancy:/opt/sap/hdb:$HOME/.config/sway/scripts:$HOME/flutter/flutter/bin
+export PATH=$PATH:/opt/jdk-20.0.1/bin
+export VISUAL="nvim";
+export EDITOR="nvim";
+export JAVA_HOME="/opt/jdk-20.0.1/";
+export CHROME_EXECUTABLE="/usr/bin/chromium";
+# SSH agent
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/daniel/.oh-my-zsh"
@@ -109,6 +114,9 @@ export FZF_DEFAULT_COMMAND="fd --type f"
 # Zoxide
 eval "$(zoxide init zsh)"
 
+# fix ssh issues with kitty
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -148,7 +156,7 @@ alias docker='podman'
 alias df='df -h'
 alias free='free -h'
 alias vi='nvim'
-
+alias vim='nvim'
 
 # Lazyness
 
