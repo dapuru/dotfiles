@@ -20,6 +20,8 @@
 
 [delta]
     	navigate = true
+	liine-numbers = true
+  	side-by-side = true
 
 [merge]
     	conflictstyle = diff3
@@ -28,7 +30,7 @@
 	browser = chromium
 
 [diff]
-	tool = meld
+	tool = delta
 	colorMoved = default
 
 [alias]
