@@ -1,8 +1,7 @@
 source: https://gist.githubusercontent.com/Kvn0l/4f0470ef312e4c74284755259a8d41f5/raw/3ac573945327942e04995db97d063dc8a03f51db/config.json
-removed segments:
 
-'''json
-      "menu#powermode-buttons": {
+removed segments:
+     "menu#powermode-buttons": {
         "label": "", 
         "position": "right",
         "actions": [ 
@@ -43,4 +42,4 @@ removed segments:
           }
         ]
       }
-'''
+
