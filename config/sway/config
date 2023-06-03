@@ -2,7 +2,7 @@
 # Adjusted config for sway
 # Author: dapuru
 # Repo: https://github.com/dapuru/dotfiles
-# V.0.4 - 22.05.2023
+# V.0.4.1 - 03.06.2023
 #
 # Location: ~/.config/sway/config
 # Read `man 5 sway` for a complete reference.
@@ -39,8 +39,8 @@ set $xtra_menu wofi --show drun -I -W 400 -H 300
 # https://github.com/MarkHedleyJones/dmenu-extended
 set $menu dmenu_extended_run | xargs swaymsg exec --
 set $menu_d dmenu_extended_run
-# 4) Contect Menu
-set $context_menu sgtk-menu
+# 4) Contect Menu sgtk-menu is obsolete
+# set $context_menu sgtk-menu
 
 
 ###########################################################
@@ -69,6 +69,10 @@ client.focused $focus_color $focus_color #ffffff $focus_color #000000
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+ # define display output names: disp1 = internal, disp2 = external
+ set $disp1 eDP-1
+ set $disp2 DP-3
+    
 
 
 # Input configuration
@@ -170,7 +174,6 @@ set $lock_path ~/.config/sway/scripts/lock.sh
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+shift+d exec $context_menu
     bindsym $mod+space exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
