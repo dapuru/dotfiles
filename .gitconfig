@@ -13,13 +13,23 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore_global
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta
+
+[interactive]
+    	diffFilter = delta --color-only
+
+[delta]
+    	navigate = true
+
+[merge]
+    	conflictstyle = diff3
 
 [web]
 	browser = chromium
 
 [diff]
 	tool = meld
+	colorMoved = default
 
 [alias]
 	amend = commit --amend
