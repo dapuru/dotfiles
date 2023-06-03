@@ -3,7 +3,7 @@
     "position": "top",
     "height": 30,
 
-    "modules-left": ["custom/sgtk-menu", "sway/workspaces", "sway/mode"],
+    "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
     "modules-right": ["tray", "custom/cmus", "custom/media", "custom/spotify", "mpd", "custom/btc", "custom/mail", "cpu", "memory", "custom/storage", "pulseaudio", "network", "custom/tor", "idle_inhibitor", "battery", "custom/notification", "custom/pacman", "clock"],
     "sway/mode": {
