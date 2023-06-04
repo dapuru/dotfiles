@@ -7,7 +7,7 @@
 @define-color noti-bg-alt #383E4A;
 @define-color noti-fg #E5E9F0;
 @define-color noti-bg-hover #81A1C1;
-@define-color noti-bg-focus #A3BE8C;
+@define-color noti-bg-focus #2E3440; /* #A3BE8C; */
 @define-color noti-close-bg rgba(255, 255, 255, 0.1);
 @define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);
 @define-color noti-urgent #BF616A;
@@ -43,7 +43,7 @@
 }
 
 .normal {
-  background: green;
+  background: transparent;
   padding: 6px;
   border-radius: 12px;
 } */
@@ -185,7 +185,7 @@
 /* Title widget */
 .widget-title {
   margin: 8px;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
 }
 
 .widget-title>button {
