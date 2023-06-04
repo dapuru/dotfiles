@@ -1,2 +1,2 @@
 #!/bin/sh
-kitty -e ranger
+kitty -e ranger $1
