@@ -24,8 +24,8 @@ My dotfiles and config for sway on arch.
 | Multiplexer | tmux |
 | Filemanager | ranger |
 | Markdown | glow |
-| screenshot | grim |
-| screenclip| slurp |
+| screenshot | grim, slurp, swappy |
+| screenclip|  |
 | pdf-viewer | zathura |
 | editor | vim & neovim (lazyvim) |
 | music player | cmus |
