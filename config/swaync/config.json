@@ -37,14 +37,13 @@
   "widgets": [
     "label",
     "menubar",
-    "mpris",
     "title",
     "dnd",
     "notifications",
     "buttons-grid"
   ],
   "widget-config": {
-    "title": {
+    "label": {
       "text": "Notifications",
       "clear-all-button": true,
       "button-text": "Clear All"
@@ -84,7 +83,7 @@
           },
           {
             "label": "   Lock",
-            "command": "swaylock.sh"
+            "command": "~/.config/sway/scripts/lock.sh"
           },
           {
             "label": "   Logout",
@@ -119,20 +118,20 @@
         "position": "left",
         "actions": [
           {
-            "label": "\udb80\udd00   Entire screen",
+            "label": "Entire screen",
             "command": "swaync-client -cp && sleep 1 && grim ~/Images/screenshots/scrn-$(date +'%Y-%m-%d-%H-%M-%S').png"
 
           },
           {
-            "label": "\udb80\udd00   Select a region",
+            "label": "Select a region",
             "command": "swaync-client -cp && sleep 1 && grim -g  \"$(slurp)\" ~/Images/screenshots/scrn-$(date +'%Y-%m-%d-%H-%M-%S').png"
           },
           {
-            "label": "\udb80\udd00   Open swappy",
+            "label": "Open swappy",
             "command": "swaync-client -cp && grim -g \"$(slurp)\" - | swappy -f -"
           },
           {
-            "label": "\udb80\udd00   Open screenshot folder",
+            "label": "Open screenshot folder",
             "command": "~/.config/sway/scripts/run_ranger.sh ~/Images/screenshots/"
           }
         ]
@@ -142,20 +141,16 @@
         "position": "left",
         "actions": [
           {
-            "label": "\udb81\udc8b  Start/Stop Webserver",
-            "command": "kitty ~/.config/sway/scripts/run_lighttpd.sh"
+            "label": "\udb81\udc8b      Start/Stop Webserver",
+            "command": "swaync-client -cp && sleep 1 && kitty ~/.config/sway/scripts/run_lighttpd.sh"
           },
           {
-            "label": "\uf4b7  Manage Docker/Podman",
+            "label": "\uf4b7      Manage Docker/Podman",
             "command": "swaync-client -cp && sleep 1 && kitty ~/.config/sway/scripts/run_podman-tui.sh"
           },
           {
-            "label": "\ue62a  Start Windows-VM",
+            "label": "\ue62a      Start Windows-VM",
             "command": "swaync-client -cp && recording.sh stop"
-          },
-          {
-            "label": "Whatever",
-            "command": "$XDG_VIDEOS_DIR/Screencasts"
           }
         ]
       }
@@ -164,7 +159,7 @@
       "actions": [
         {
           "label": "",
-          "command": "nm-connection-editor"
+          "command": "swaync-client -cp && sleep 1 &&  kitty --hold ~/.config/sway/scripts/config-network.sh"
         },
         {
           "label": "\uf293",
@@ -172,15 +167,15 @@
         },
         {
           "label": "",
-          "command": "nwg-look"
+          "command": "todo"
         },
         {
           "label": "",
-          "command": "orage"
+          "command": "todo"
         },
         {
           "label": "",
-          "command": "pamac-manager"
+          "command": "swaync-client -cp && sleep 1 && kitty --hold ~/.config/sway/scripts/doupdates.sh"
         }
       ]
     }
