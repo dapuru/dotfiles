@@ -37,12 +37,11 @@
   "widgets": [
     "label",
     "menubar",
-    "buttons-grid",
-    "volume",
     "mpris",
     "title",
     "dnd",
-    "notifications"
+    "notifications",
+    "buttons-grid"
   ],
   "widget-config": {
     "title": {
@@ -116,45 +115,46 @@
         ]
       },
       "menu#screenshot-buttons": {
-        "label": "",
+        "label": "\udb80\udd00",
         "position": "left",
         "actions": [
           {
-            "label": "   Entire screen",
-            "command": "swaync-client -cp && sleep 1 && hyprshot -m output"
+            "label": "\udb80\udd00   Entire screen",
+            "command": "swaync-client -cp && sleep 1 && grim ~/Images/screenshots/scrn-$(date +'%Y-%m-%d-%H-%M-%S').png"
+
           },
           {
-            "label": "   Select a region",
-            "command": "swaync-client -cp && sleep 1 && hyprshot -m region"
+            "label": "\udb80\udd00   Select a region",
+            "command": "swaync-client -cp && sleep 1 && grim -g  \"$(slurp)\" ~/Images/screenshots/scrn-$(date +'%Y-%m-%d-%H-%M-%S').png"
           },
           {
-            "label": "   Open screenshot menu",
-            "command": "swaync-client -cp && rofi-screenshot"
+            "label": "\udb80\udd00   Open swappy",
+            "command": "swaync-client -cp && grim -g \"$(slurp)\" - | swappy -f -"
           },
           {
-            "label": "   Open screenshot folder",
-            "command": "exo-open $HYPRSHOT_DIR"
+            "label": "\udb80\udd00   Open screenshot folder",
+            "command": "~/.config/sway/scripts/run_ranger.sh ~/Images/screenshots/"
           }
         ]
       },
-      "menu#screencast-buttons": {
-        "label": "",
+      "menu#dev-buttons": {
+        "label": "\udb83\udc6f",
         "position": "left",
         "actions": [
           {
-            "label": "   Entire screen",
-            "command": "swaync-client -cp && sleep 1 && recording.sh toggle fullscreen"
+            "label": "\udb81\udc8b  Start/Stop Webserver",
+            "command": "kitty ~/.config/sway/scripts/run_lighttpd.sh"
           },
           {
-            "label": "   Select a region",
-            "command": "swaync-client -cp && sleep 1 && recording.sh toggle region"
+            "label": "\uf4b7  Manage Docker/Podman",
+            "command": "swaync-client -cp && sleep 1 && kitty ~/.config/sway/scripts/run_podman-tui.sh"
           },
           {
-            "label": "   Stop",
+            "label": "\ue62a  Start Windows-VM",
             "command": "swaync-client -cp && recording.sh stop"
           },
           {
-            "label": "   Open screencast folder",
+            "label": "Whatever",
             "command": "$XDG_VIDEOS_DIR/Screencasts"
           }
         ]
@@ -167,34 +167,23 @@
           "command": "nm-connection-editor"
         },
         {
-          "label": "",
-          "command": "blueman"
+          "label": "\uf293",
+          "command": "blueman-manager"
         },
         {
           "label": "",
           "command": "nwg-look"
         },
         {
-          "label": "",
-          "command": "exo-open ~/ConfigHub"
-        },
-        {
-          "label": "",
-          "command": "ymuse"
-        },
-        {
           "label": "",
           "command": "orage"
         },
         {
-          "label": "",
+          "label": "",
           "command": "pamac-manager"
-        },
-        {
-          "label": "",
-          "command": "firefox"
         }
       ]
     }
   }
 }
+
