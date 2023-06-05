@@ -28,6 +28,8 @@ My dotfiles and config for sway on arch.
 | screenclip|  |
 | pdf-viewer | zathura |
 | editor | vim & neovim (lazyvim) |
+| git | lazygit |
+| diff | delta |
 | music player | cmus |
 | top | htop |
 | ssh | none/fzf |
