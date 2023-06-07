@@ -25,7 +25,7 @@ My dotfiles and config for sway on arch.
 | Filemanager | ranger |
 | Markdown | glow |
 | screenshot | grim, slurp, swappy |
-| screenclip|  |
+| screencast| wf-recorder |
 | pdf-viewer | zathura |
 | editor | vim & neovim (lazyvim) |
 | git | lazygit |
