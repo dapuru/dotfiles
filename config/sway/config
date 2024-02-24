@@ -21,6 +21,7 @@ set $check_updates ~/.config/sway/scripts/checkupdates.sh
 set $editconf ~/.config/sway/scripts/edit_configfiles.sh
 set $alttab ~/.config/sway/scripts/windowswitcher.sh
 set $tmux-quake ~/.config/sway/scripts/run-tmux-quake.sh  
+set $virt-start ~/.config/sway/scripts/startvm-virt.sh
 #set $background ~/Images/wallpaper/arch-black.jpg 
 set $background ~/Images/wallpaper/whitesur.png  
 
@@ -116,6 +117,8 @@ for_window [shell="xwayland"] title_format "%title [XWayland]"
 #assign [class="vlc"] workspace number 4
 for_window [class="Spotify" instance="spotify" title="Spotify"] move container to workspace 5, workspace 5 
 for_window [class="thunderbird"] move container to workspace 6, workspace 6
+for_window [app_id="virt-viewer"] move container to workspace 4, workspace 4
+
 
 # Floating windows
 # get names via: swaymsg -t get_tree | grep <name>
@@ -175,6 +178,9 @@ set $lock_path ~/.config/sway/scripts/lock.sh
 
     # Start your launcher
     bindsym $mod+space exec $menu
+
+    # Start vm-linux
+    bindsym $mod+Shift+v exec $virt-start archlinux
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
