@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=NeoMutt
+GenericName=Email
+Comment=Check and compose emails
+Comment[en_GB]=Check and compose email
+TryExec=neomutt
+Exec=BROWSER=kitty -1 --class email -e mutt-desktop
+Terminal=false
+Type=Application
+Keywords=Text;editor;
+Icon=mail
+Categories=Utility;Email;
+StartupWMClass=email
+StartupNotify=false
