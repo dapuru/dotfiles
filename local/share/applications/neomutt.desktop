@@ -4,7 +4,7 @@ GenericName=Email
 Comment=Check and compose emails
 Comment[en_GB]=Check and compose email
 TryExec=neomutt
-Exec=BROWSER=kitty -1 --class email -e mutt-desktop
+Exec=kitty -e neomutt
 Terminal=false
 Type=Application
 Keywords=Text;editor;
