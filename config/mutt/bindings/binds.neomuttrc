@@ -1,0 +1,12 @@
+# Attachments: see https://github.com/neomutt/neomutt/issues/1669
+# This binding was using <space> for folders auto-completion and breaking a lot of push macros.
+unbind editor <space>
+# List files in $HOME with selected ext with fzf and send them to compose attachment, use tab to select multiple files in fzf
+macro compose \Ca ":source ~/.config/mutt/scripts/fzfattach.sh|<enter>"
+
+# Choose folder so save an attachment
+macro attach S "<shell-escape>bash $HOME/.config/mutt/scripts/fzfdirpicker.sh<enter><enter-command>source $HOME/.config/mutt/tmpfile<enter>o" "Choose folder for attachments"
+
+# change the Folder
+bind index <Space> noop
+macro index <space><return> ":source ~/.config/mutt/scripts/fzffolder.sh|<enter>"
