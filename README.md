@@ -23,6 +23,9 @@ My dotfiles and config for sway on arch.
 | Quake-Terminal | kitty & tmux |
 | Multiplexer | tmux |
 | Filemanager | ranger |
+| Email| neomutt |
+| Adress Book | khard |
+| Calendar | khal |
 | Markdown | glow |
 | screenshot | grim, slurp, swappy |
 | screencast| wf-recorder |
@@ -70,3 +73,8 @@ https://github.com/mathiasbynens/dotfiles<br>
 
 ## Other sway repos:
 https://github.com/maximbaz/dotfiles/<br>
+
+## Keybindings
+all is vim: https://github.com/erikw/vim-keybindings-everywhere-the-ultimate-list
+
+
