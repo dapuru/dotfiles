@@ -1,0 +1,71 @@
+# vim: filetype=neomuttrc
+# configured using muzz-wizard (command mw)
+source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
+
+# overwrite mutt-wizard defaults
+#unset help                  # don't show help bar
+set pager_read_delay = 3      # View a message for 3 seconds to mark as read
+set mark_old = no		          # Unread mail stay unread until read
+set mime_forward = no	  	    # attachments are forwarded with mail
+set wait_key = no		          # mutt won't ask "press key to continue"
+set fast_reply			          # skip to compose when replying
+set fcc_attach			          # save attachments with the body
+set forward_format = "FW: %s" # format of subject when forwarding
+set forward_attachments = yes # forard attachments
+set forward_quote		          # quote forwarded message
+set reverse_name	            # reply as whomever it was to
+set reverse_realname=yes      # use any real name provided when replying
+set auto_tag                  # automatically apply commands to all tagged messages (if some messages are tagged)
+set include			              # include message in replies
+#set mail_check=5              # to avoid lags using IMAP with some email providers (yahoo for example)
+set timeout=5                 # how long to wait after user input until unblocking background stuff like mail syncing
+set count_alternatives=yes    # recurse into text/multipart when looking for attachement types
+set thorough_search=no        # don't process mail (via mailcap etc) before parsing with queries like ~B 
+set flag_safe                 # flagged messages can't be deleted
+set abort_noattach=ask-yes    # Abort when keyowrd is found, but no attachment present (yes, no, ask-yes)
+set abort_noattach_regex = "\\<(attached|Anhang|angehängt)\\>"
+
+set tmpdir = /tmp/neomutt/tmp # where to keep temp files
+set header_cache = "~/.cache/mutt"
+set message_cachedir = "~/.cache/mutt"
+set query_command = "khard email --parsable --search-in-source-files '%s'"
+#set query_command = "abook --mutt-query '%s'"
+
+
+# Sidebar mappings
+set sidebar_visible = no 
+
+#### Header Options
+#ignore *                                # ignore all headers
+unignore to: cc:                        # ..then selectively show only these headers
+unhdr_order *                           # some distros order things by default
+hdr_order from: to: cc: date: subject:  # header item ordering
+
+#### View Settings
+set allow_ansi             # allow ansi escape codes (e.g. colors)
+set pager_index_lines = 20 # number of index lines to show
+set pager_context = 3      # number of context lines to show
+set pager_stop             # don't go to next message automatically
+set menu_scroll            # scroll in menus
+set smart_wrap             # wrap lines at word boundaries rather than splitting up words
+set wrap=90                # email view width
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+# Tidy up emails significantly
+set display_filter="perl -0777pe 's/___{10,}[^_]*microsoft teams meeting.*to join the meeting<([^>]*).*(___{10,})/\\n────────────────────────────────────────────────────────────────────────\\n\\nTeams Meeting ~~\\n\\nMeeting URL:\\n$1\\n\\n────────────────────────────────────────────────────────────────────────/is'| sed 's/^\\(To\\|CC\\): \\([^<]*[^>]\\)$/\\1\:<\\2>/g' | perl -0777pe 's/(((?!.*CC:)To:|CC:).+?(?=>\\n)>)/$1!REMOVE_ME!\\n!END!/gs' | sed '/^To:/{;:l N;/!END!/b; s/\\(\\n\\|  *\\|\\t\\t*\\)/ /g; bl}' | sed '/^To:/,/>$/ s/\\([^>]*>,\\?\\)/\\1\\n/g' | sed -e 's/^ \\(CC:\\)\\(.*$\\)/\\1\\n\\2/' -e 's/^\\(To:\\)\\(.*$\\)/\\1 --------------------------------------------------------------------\\n\\2/' -e 's/^!END!$/------------------------------------------------------------------------/' -e '/!REMOVE_ME!/d' -e '/\\[-- Type: text.* --\\]/d' -e '/\\[-- Autoview.* --\\]/d' -e '/\\[-- Type.* --\\]/d' -e '/\\[-- .*unsupported.* --\\]/d' -e '/\\[-- Attachment #[0-9] --\\]/d' -e 's/Attachment #[0-9]: //g' -e '/./,/^$/!d' -e 's/\\([A-Z]*\\), *\\([A-Za-z]*\\)\\(\"\\)\\?/\\2 \\L\\u\\1\\E\\3/g'"
+
+#### Notmuch Config
+set nm_query_type=threads                                   # bring in the whole thread instead of just the matched message, really useful
+set nm_default_url = "notmuch:///$HOME/.local/share/mail"   # default notmuch URL
+set nm_record_tags = "sent"                                 # default 'sent' tag
+set virtual_spoolfile=yes                                   # allow using virtual mailboxes as spoolfile 
+macro index \Cg "<enter-command>unset wait_key<enter><shell-escape>read -p 'Enter a search: ' x; echo \$x >~/.cache/mutt_terms<enter><change-folder>All Accounts<enter><limit>~i \"\`notmuch --config ~/.config/notmuch/notmuchrc search --output=messages \$(/bin/cat ~/.cache/mutt_terms) | head -n 1000 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a' | sed 's/id://g' \`\"<enter>" "Search all mailboxes in all accounts (Global search)"
+
+# key bindings
+source ~/.config/mutt/bindings/binds.neomuttrc
+
+# styling
+source ~/.config/mutt/styles.muttrc
+
+# powerline
+source powerline.neomuttrc
