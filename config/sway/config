@@ -18,6 +18,8 @@
 set $screenshot grim ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 set $screenclip slurp | grim -g - ~/Images/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png
 set $check_updates ~/.config/sway/scripts/checkupdates.sh
+set $check_ical ~/.config/sway/scripts/send-ical-notifications.sh
+set $check_email ~/.config/sway/scripts/check_emails.sh
 set $editconf ~/.config/sway/scripts/edit_configfiles.sh
 set $alttab ~/.config/sway/scripts/windowswitcher.sh
 set $tmux-quake ~/.config/sway/scripts/run-tmux-quake.sh  
@@ -387,6 +389,10 @@ exec $idle_path
 
 # Auto chekco for package updates
 exec_always $check_updates
+# Check for Calendar events today
+exec_always $check_ical
+# Ceck for check_emails
+exec_always check_email
 
 # Quake stype terminal
 # https://www.reddit.com/r/archlinux/comments/bfqc71/any_waylandfriendly_guake_alternatives/
