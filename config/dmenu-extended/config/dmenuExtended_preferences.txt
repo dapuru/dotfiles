@@ -39,7 +39,7 @@
     ],
     "path_aliasFile": "",
     "path_shellCommand": "~/.dmenuEextended_shellCommand.sh",
-    "prompt": "?:",
+    "prompt": "",
     "scan_hidden_folders": false,
     "terminal": "kitty",
     "terminal_editor": "vim",
