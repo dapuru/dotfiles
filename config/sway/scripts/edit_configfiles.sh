@@ -62,6 +62,6 @@ case "$choice" in
 esac
 
 # Ultimately, what do want to do with our choice?  Open in our editor!
-geany "$choice"
+vim "$choice"
 # emacsclient -c -a emacs "$choice"
 
