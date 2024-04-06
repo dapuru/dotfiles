@@ -16,21 +16,21 @@ My dotfiles and config for sway on arch.
 | screen-lock | |
 | login | greetd |
 | logout | nwgbar |
-| Shell | zsh |
+| Shell | zsh, atuin |
 | Finder | <a href="https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/">fzf</a> |
 | cd | <a href="https://github.com/ajeetdsouza/zoxide">zoxide</a> |
 | Terminal | kitty |
 | Quake-Terminal | kitty & tmux |
 | Multiplexer | tmux |
 | Filemanager | ranger |
-| Email| neomutt |
-| Adress Book | khard |
-| Calendar | khal |
+| Email| neomutt (mutt-wizard) |
+| Adress Book | khard, vdirsyncer |
+| Calendar | khal, virdsyncer |
 | Markdown | glow |
 | screenshot | grim, slurp, swappy |
 | screencast| wf-recorder |
 | pdf-viewer | zathura |
-| editor | vim & neovim (lazyvim) |
+| editor | neovim (lazyvim) |
 | git | lazygit |
 | diff | delta |
 | music player | cmus |
